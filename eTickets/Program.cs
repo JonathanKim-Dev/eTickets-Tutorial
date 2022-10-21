@@ -1,4 +1,10 @@
+//.NET 6 does not have startup.cs where you can register dependencies and Middleware. That is now done in Program.cs
+using eTickets.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//my edit. This is first because the order matters. 
+builder.Services.AddDbContext<AppDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
