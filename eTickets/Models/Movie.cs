@@ -1,5 +1,6 @@
 ﻿using eTickets.Data.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTickets.Models
 {
@@ -14,18 +15,21 @@ namespace eTickets.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; } //MovieCategory is an enum that is being recognized because of "using.eTickets.Data" We have to create the enum in the Data -> MovieCategory.cs
+
+        //Relationships
+        public List<Actor_Movie> Actors_Movies { get; set; }
+
+        //Cinema
+        public int CinemaId { get; set; }
+        [ForeignKey("CinemaId")]
+        public Cinema Cinema { get; set; }
+
+        //Producer
+        public int ProducerId { get; set; }
+        [ForeignKey("ProducerId")]
+        public Producer Producer { get; set; }
         
 
-        Movie(int id, string name, string description, double price, string imageURL, DateTime startDate, DateTime endDate, MovieCategory movieCategory)
-        {
-            Id = id;
-            Name = name;
-            Description = description;
-            Price = price;
-            ImageURL = imageURL;
-            StartDate = startDate;
-            EndDate = endDate;
-            MovieCategory = movieCategory;
-        }
+        
     }
 }

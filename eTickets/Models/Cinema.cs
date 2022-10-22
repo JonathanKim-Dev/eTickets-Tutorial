@@ -11,13 +11,10 @@ namespace eTickets.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        Cinema(int id, string logo, string name, string description)
-        {
-            Id = id;
-            Logo = logo;
-            Name = name;
-            Description = description;
-        }
+        //Relationships
+        public List<Movie> Movies { get; set; }
+
+       
 
 
 
