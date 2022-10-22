@@ -10,13 +10,10 @@ namespace eTickets.Models
         public string FullName { get; set; }
         public string Bio { get; set; }
 
-        Actor(int id, string profilePictureURL, string fullName, string bio)
-        {
-            Id = id;
-            ProfilePictureURL = profilePictureURL;
-            FullName = fullName;
-            Bio = bio;
-        }
+        //Relationships
+        public List<Actor_Movie> Actors_Movies { get; set; }
+
+      
 
 
         
