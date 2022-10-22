@@ -6,8 +6,16 @@ namespace eTickets.Models
     {
         [Key]
         public int Id { get; set; }
+
+
+        //In the sitre the ProfulePictureURL will appear as the string you put down
+        [Display(Name = "Profile Picture URL")]
         public string ProfilePictureURL { get; set; }
+
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
+
+        [Display(Name = "Biography")]
         public string Bio { get; set; }
 
         //Relationships
