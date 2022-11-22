@@ -8,8 +8,8 @@ namespace eTickets.Models
         public int Id { get; set; }
 
 
-        //In the sitre the ProfulePictureURL will appear as the string you put down
-        [Display(Name = "Profile Picture URL")]
+        //In the site the ProfilePictureURL will appear as the string you put down. So if you didn't put "Profile Picture URL" it'd default as ProfilePictureURL
+        [Display(Name = "Profile Picture")]
         public string ProfilePictureURL { get; set; }
 
         [Display(Name = "Full Name")]
