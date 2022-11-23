@@ -1,5 +1,6 @@
 //.NET 6 does not have startup.cs where you can register dependencies and Middleware. That is now done in Program.cs
 using eTickets.Data;
+using eTickets.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Conf
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IActorsService,ActorsService>(); //1st parameter IActorsService is the interface you will inject in constructor. 2nd parameter ActorsService is implementation of interface.
 
 var app = builder.Build();
 
