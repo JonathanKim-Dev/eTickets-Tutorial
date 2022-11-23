@@ -9,9 +9,11 @@
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7208;http://localhost:5208"
     },
+    //When launching IIS Express from Visual Studio it will bring up the "Movies" page by default
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "Movies",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

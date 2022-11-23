@@ -19,7 +19,7 @@
                                     @item.Name
                                     <a class="text-white float-right"><i class="bi bi-pencil-square"></i></a>
                                 </h5>
-                            </p>git add
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-6"> <!--This div is the image movie in the center-left of the box -->
@@ -56,6 +56,7 @@
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
+
                                 <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")"
                                asp-controller="Orders"
                                asp-action="AddItemToShoppingCart"
