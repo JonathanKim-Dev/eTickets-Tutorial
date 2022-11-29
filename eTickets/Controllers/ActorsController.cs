@@ -20,7 +20,7 @@ namespace eTickets.Controllers
             return View(data);
         }
 
-        //Get: Actors/Create
+        //Create Actor
         public IActionResult Create()
         {
             return View();
@@ -37,7 +37,7 @@ namespace eTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //Get: Actors/Details/1
+        //Get Actor Details
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -47,7 +47,7 @@ namespace eTickets.Controllers
             return View(actorDetails);
         }
 
-        //Get: Actors/Create
+        //Edit Actor
         public async Task <IActionResult> Edit(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);
@@ -63,6 +63,24 @@ namespace eTickets.Controllers
                 return View(actor);
             }
             await _service.UpdateAsync(id, actor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Delete Actor
+        public async Task<IActionResult> Delete(int id) //this is a Get request
+        {
+            var actorDetails = await _service.GetByIdAsync(id); //Checking if actor exist
+            if (actorDetails == null) return View("NotFound"); //If actor does not exist return NotFound
+            return View(actorDetails);
+        }
+
+        [HttpPost, ActionName("Delete")] //This is a post request
+        public async Task<IActionResult> DeleteConfirmed(int id) // You only need the actor Id to delete it from database so no [Bind("Id, FullName... etc
+        {                                                        // Also, can not have 2 Delete with same parameters (int id) so changed name
+            var actorDetails = await _service.GetByIdAsync(id); 
+            if (actorDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
