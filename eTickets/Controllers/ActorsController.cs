@@ -74,7 +74,7 @@ namespace eTickets.Controllers
             return View(actorDetails);
         }
 
-        [HttpPost, ActionName("Delete")] //This is a post request
+        [HttpPost, ActionName("Delete")] //IDK why this is a post request. Also, because can't have 2 Deletes in controller we used ActionName("Delete")
         public async Task<IActionResult> DeleteConfirmed(int id) // You only need the actor Id to delete it from database so no [Bind("Id, FullName... etc
         {                                                        // Also, can not have 2 Delete with same parameters (int id) so changed name
             var actorDetails = await _service.GetByIdAsync(id); 
