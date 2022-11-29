@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Conf
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IActorsService,ActorsService>(); //1st parameter IActorsService is the interface you will inject in constructor. 2nd parameter ActorsService is implementation of interface.
+                                                            //Also, this is a dependency injection.
 
 var app = builder.Build();
 
