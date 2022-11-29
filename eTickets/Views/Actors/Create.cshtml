@@ -51,7 +51,7 @@
 @section Scripts{
     <script>
         //this is jQuery
-        $(document).ready(function () { 
+        $(document).ready(function () { //If there was an error while making a profile picture the actor image stays there
             var output = document.getElementById('ProfilePicturePreview');
             output.src = $("#ProfilePictureURL").val();
         })
